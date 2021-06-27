@@ -1,12 +1,7 @@
-import express from 'express';
+import dotenv from 'dotenv';
+import { JipBot } from './services/jip-bot';
 
-const app = express();
-const port = 3000;
+dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+const TOKEN = process.env.TOKEN as string;
+new JipBot(TOKEN);
